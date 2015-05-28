@@ -1,8 +1,14 @@
 var myApp = angular.module('myApp', []);
 
+
+function jsonp_callback(data) {
+    // returning from async callbacks is (generally) meaningless
+    console.log(data.found);
+}
+
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
-    $http.get('https://openapi.etsy.com/v2/shops/forgelakestudio/listings/active?api_key=f07lri9zll0kl2jfnkfqli8z').
+    $http.get('/etsy').
         success(function(data, status, headers, config) {
             console.log(data);
         }).
@@ -11,7 +17,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
             // or server returns response with an error status.
         });
 
-}])
+}]);
 
 //angular stuff will go here
 
