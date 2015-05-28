@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     var getData = new GetData();
 
     getData.go(function(data){
-        console.log(data);
+        //console.log(data);
         res.json(data);
     });
 });

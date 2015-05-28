@@ -1,21 +1,39 @@
 var myApp = angular.module('myApp', []);
 
 
-function jsonp_callback(data) {
-    // returning from async callbacks is (generally) meaningless
-    console.log(data.found);
-}
-
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
+    $scope.listings;
 
-    $http.get('/etsy').
-        success(function(data, status, headers, config) {
-            console.log(data);
-        }).
-        error(function(data, status, headers, config) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+    //IF DISPLAYLISTINGS WORKS, THIS WON'T BE NEEDED
+    //$http.get('/etsy').
+    //    success(function(data, status, headers, config) {
+    //        console.log("client side: ", data);
+    //    }).
+    //    error(function(data, status, headers, config) {
+    //        // called asynchronously if an error occurs
+    //        // or server returns response with an error status.
+    //});
+
+    $scope.displayListings = function(){
+        return $http.get('/etsy').then(function(response){
+            if(response.status !== 200){
+                console.log("Response Error, cannot reach data");
+            }
+
+            $scope.listings = response.data.results;
+            console.log($scope.listings);
+            return response.data;
         });
+
+    };
+
+    //TODO: connect button to pagination call on API
+    //$scope.addPage = function(){
+    //    $http.get('/etsy').
+    //        success(function(data){
+    //
+    //    });
+    //}
 
 }]);
 

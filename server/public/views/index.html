@@ -12,6 +12,12 @@
     <p>Don't you feel special? I know I do. </p>
 
     <div class="container" ng-controller="GetApi">
+        <!--<button ng-click="addPage()">Add More Data</button>-->
+        <button ng-click="displayListings()">Display Listings</button>
+        <div ng-repeat="listing in listings">
+            <h3>{{listing.title}}</h3>
+            <p>{{listing.price | currency}}</p>
+        </div>
 
     </div>
 
