@@ -16,7 +16,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         });
     };
 
-    load();
+    //load();
 
     $scope.displayListings = function(){
         return $http.get('/etsy').then(function(response){
