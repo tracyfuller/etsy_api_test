@@ -22,6 +22,31 @@ module.exports = function(grunt) {
                 ],
                 "dest": "server/public/vendor/"
             },
+            masonry: {
+                expand: true,
+                cwd: "bower_components/masonry/dist/",
+                src: [
+                    "masonry.pkgd.min.js"
+                ],
+                "dest": "server/public/vendor/masonry"
+            },
+            angular_masonry: {
+                expand: true,
+                cwd: "bower_components/angular-masonry/",
+                src: [
+                    "angular-masonry.js"
+                ],
+                "dest": "server/public/vendor/masonry"
+            },
+            imagesloaded: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "imagesloaded/imagesloaded.pkgd.js",
+                    "imagesloaded/imagesloaded.pkgd.min.js"
+                ],
+                "dest": "server/public/vendor/"
+            },
             bootstrap: {
                 expand: true,
                 cwd: "node_modules",

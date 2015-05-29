@@ -7,3 +7,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.item {
+    width: 25%;
+}
+.listingContainer img {
+    max-width: 100%;
+}

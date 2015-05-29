@@ -1,0 +1,28 @@
+{
+  "name": "npm_api_test",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tracyfuller/etsy_api_test",
+  "authors": [
+    "tracyfuller <tracy.e.fuller@gmail.com>"
+  ],
+  "description": "Personal Project Masonry / Etsy API Test",
+  "main": "app.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-masonry": "~0.11.0"
+  }
+}

@@ -9,14 +9,15 @@
 </head>
 <body>
 
-    <div class="container" ng-controller="GetApi">
+    <div class="container" ng-controller="GetApi" id="container">
         <!--<button ng-click="addPage()">Add More Data</button>-->
         <button ng-click="displayListings()">Display Listings</button>
-        <div ng-repeat="listing in listings">
-            <h3>{{listing.title}}</h3>
-            <img ng-src="{{listing.Images[0].url_170x135}}">
-            <p>{{listing.price | currency}}</p>
+        <div masonry>
+            <div my-field="listings.promise" class="masonry-brick item listingContainer" ng-repeat="listing in listings">
+                <img ng-src="{{listing.Images[0].url_170x135}}">
+            </div>
         </div>
+
 
     </div>
 
@@ -24,6 +25,9 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="../vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="../vendor/masonry/masonry.pkgd.min.js"></script>
+    <Script type="text/javascript" src="../vendor/masonry/angular-masonry.js"></Script>
     <script type="text/javascript" src="../scripts/app.min.js"></script>
 
 </body>

@@ -1,18 +1,22 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['wu.masonry']);
 
 
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
-    $scope.listings;
 
-    //IF DISPLAYLISTINGS WORKS, THIS WON'T BE NEEDED
-    //$http.get('/etsy').
-    //    success(function(data, status, headers, config) {
-    //        console.log("client side: ", data);
-    //    }).
-    //    error(function(data, status, headers, config) {
-    //        // called asynchronously if an error occurs
-    //        // or server returns response with an error status.
-    //});
+    var load = new function() {
+        var msnry;
+        var container = document.querySelector('#container');
+
+        //initialize Masonry after all images have loaded.
+        imagesLoaded(container, function () {
+            msnry = new Masonry(container, {
+                columnWidth: 200,
+                itemSelector: ".item"
+            });
+        });
+    };
+
+    load();
 
     $scope.displayListings = function(){
         return $http.get('/etsy').then(function(response){
@@ -26,6 +30,8 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         });
 
     };
+
+
 
     //TODO: connect button to pagination call on API
     //$scope.addPage = function(){
