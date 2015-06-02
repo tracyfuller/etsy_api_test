@@ -12,7 +12,7 @@ function GetData() {
 
 GetData.prototype.go = function(callback){
 
-    var request = https.request("https://openapi.etsy.com/v2/shops/forgelakestudio/listings/active?&includes=Images:1:0&api_key=f07lri9zll0kl2jfnkfqli8z",
+    var request = https.request("https://openapi.etsy.com/v2/shops/bitsmonster/listings/active?&includes=Images:1:0&api_key=f07lri9zll0kl2jfnkfqli8z",
         function (response) {
         jsonObject = '';                                            //define jsonObject as a string so as to not have the data return "[Object, object]"
 

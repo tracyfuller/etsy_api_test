@@ -6,9 +6,11 @@ module.exports = function(grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
-                src: 'client/scripts/app.js',
-                dest: 'server/public/scripts/app.min.js'
+            dist: {
+                files: {
+                    'server/public/scripts/directives.min.js':'client/scripts/directives.js',
+                    'server/public/scripts/app.min.js': 'client/scripts/app.js'
+                }
             }
         },
         copy: {

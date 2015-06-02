@@ -1,22 +1,69 @@
 var myApp = angular.module('myApp', ['wu.masonry']);
 
 
+
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
-    var load = new function() {
-        var msnry;
-        var container = document.querySelector('#container');
+    $scope.listings = [
+        {
+            Images: [{ url_170x135: "http://placehold.it/300x300"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/300x300"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/100x100"}]
+        },
+        {
+            Images: [{ url_170x135: "http://placehold.it/200x200"}]
+        }
+    ];
 
-        //initialize Masonry after all images have loaded.
-        imagesLoaded(container, function () {
-            msnry = new Masonry(container, {
-                columnWidth: 200,
-                itemSelector: ".item"
-            });
-        });
+    var max;
+    var min;
+
+    var popularity = function(item){
+        return (item.num_favorers * 2) + item.views;
+    }
+
+    var imageSizer = function(){
+        for (var i = 0; i < $scope.listings.length; i++){
+            console.log("Popularity for item " + (i+1) + ": " + popularity($scope.listings[i]));
+        }
     };
-
-    //load();
 
     $scope.displayListings = function(){
         return $http.get('/etsy').then(function(response){
@@ -26,11 +73,11 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
             $scope.listings = response.data.results;
             console.log($scope.listings);
+            imageSizer();
             return response.data;
         });
 
     };
-
 
 
     //TODO: connect button to pagination call on API
