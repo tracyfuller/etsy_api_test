@@ -3,22 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Etsy API Test</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../stylesheets/style.css" rel="stylesheet">
-
-</head>
-<body>
-    <div ng-controller="GetApi">
-        <button ng-click="displayListings()">Display Listings</button>
-
-        <div masonry class="grid js-masonry" item-selector=".masonryBrick" column-width="100">
-
-            <div class="masonry-brick item" ng-repeat="listing in listings">
-                <img ng-src="{{listing.Images[0].url_170x135}}">
-            </div>
-        </div>
-    </div>
-
 
     <!-- Scripts -->
     <script type="text/javascript" src="../vendor/jquery/dist/jquery.min.js"></script>
@@ -28,5 +13,22 @@
     <Script type="text/javascript" src="../vendor/masonry/angular-masonry.js"></Script>
     <script type="text/javascript" src="../scripts/directives.min.js"></script>
     <script type="text/javascript" src="../scripts/app.min.js"></script>
+
+</head>
+<body>
+    <div ng-controller="GetApi">
+        <button ng-click="displayListings()">Display Listings</button>
+
+        <masonry class="grid" item-selector=".masonryBrick" column-width="100">
+            <div ng-repeat="listing in listings">
+                <div class="masonry-brick {{listing.class}}" >
+                    <img ng-src="{{listing.Images[0].url_170x135}}">
+                </div>
+            </div>
+        </masonry>
+    </div>
+
+
+
 </body>
 </html>
