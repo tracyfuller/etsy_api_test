@@ -7,31 +7,11 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
     $scope.listings = [
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--height2'
+            class: 'size3'
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--height2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
+            class: 'size2'
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
@@ -43,7 +23,15 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
+            class: 'size2'
+        },
+        {
+            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+            class: 'size3'
+        },
+        {
+            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+            class: 'size2'
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
@@ -51,7 +39,19 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
+            class: ''
+        },
+        {
+            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+            class: 'size2'
+        },
+        {
+            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+            class: ''
+        },
+        {
+            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+            class: 'size2'
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
@@ -63,7 +63,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         },
         {
             Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'masonry-brick--width2'
+            class: 'size2'
         }
     ];
 
@@ -82,21 +82,49 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         var arraySmall = [];
         var arrayMed = [];
         var arrayLarge = [];
-        var arrayExtraLg = [];
         elem.sort(function (a, b){
             return a.popularity - b.popularity
         });
-        console.log("Class Builder: ", elem);
+        //separate array into separate sizing categories
         while (elem.length > (origLength/2)){
             arraySmall.push(elem.shift());
-        }
-        console.log(arraySmall);
-        console.log(elem);
-        //for (i=0; i < $scope.sizedArray.length; i++){
-        //
-        //    $scope.sizedArray[i].test = "class " + i;
-        //};
-        //console.log($scope.sizedArray);
+        };
+        origLength = elem.length;
+        while (elem.length > (origLength/2)){
+            arrayMed.push(elem.shift());
+        };
+        origLength = elem.length;
+        while (elem.length > (origLength/3)){
+            arrayLarge.push(elem.shift());
+        };
+        // assign class designations to each array
+        for (i=0; i<arraySmall.length; i++){
+            arraySmall[i].class = "";
+        };
+        for (i=0; i<arrayMed.length; i++){
+            arrayMed[i].class = "size2";
+        };
+        for (i=0; i<arrayLarge.length; i++){
+            arrayLarge[i].class = "size3";
+        };
+        for (i=0; i<elem.length; i++){
+            elem[i].class = "size4";
+        };
+        // push small arrays back together into main array
+        while (arraySmall.length >0){
+            elem.push(arraySmall.shift());
+        };
+        while (arrayMed.length >0){
+            elem.push(arrayMed.shift());
+        };
+        while (arrayLarge.length >0){
+            elem.push(arrayLarge.shift());
+        };
+        // sort main array back to original order
+        elem.sort(function (a, b){
+            return a.id - b.id
+        });
+        return elem;
     };
 
     var imageSizer = function(){

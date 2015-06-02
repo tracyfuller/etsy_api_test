@@ -24,12 +24,17 @@ img {
     overflow: hidden;
     border-radius: 5px;
     margin: 2px;
+    vertical-align: middle;
 }
-.masonry-brick--width2 {
+.size2 {
     width: 200px;
     height: 200px;
 }
-.masonry-brick--height2 {
-    height: 300px;
+.size3 {
     width: 300px;
+    height: 200px;
+}
+.size4 {
+    width: 300px;
+    height: 300px;
 }
