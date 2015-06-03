@@ -1,71 +1,71 @@
-var myApp = angular.module('myApp', ['wu.masonry']);
+var myApp = angular.module('myApp', []);
 
 
 
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
-    $scope.listings = [
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size3'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size3'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: ''
-        },
-        {
-            Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-            class: 'size2'
-        }
-    ];
+    //$scope.listings = [
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size3'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size3'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: ''
+    //    },
+    //    {
+    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
+    //        class: 'size2'
+    //    }
+    //];
 
     $scope.item = {};
     $scope.sizedArray = [];
@@ -99,16 +99,20 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         };
         // assign class designations to each array
         for (i=0; i<arraySmall.length; i++){
-            arraySmall[i].class = "";
+            arraySmall[i].rows = "1";
+            arraySmall[i].cols = "1";
         };
         for (i=0; i<arrayMed.length; i++){
-            arrayMed[i].class = "size2";
+            arrayMed[i].rows = "2";
+            arrayMed[i].cols = "2";
         };
         for (i=0; i<arrayLarge.length; i++){
-            arrayLarge[i].class = "size3";
+            arrayLarge[i].rows = "3";
+            arrayLarge[i].cols = "2";
         };
         for (i=0; i<elem.length; i++){
-            elem[i].class = "size4";
+            elem[i].rows = "3";
+            elem[i].cols = "3";
         };
         // push small arrays back together into main array
         while (arraySmall.length >0){

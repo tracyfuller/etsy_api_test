@@ -1,24 +1,15 @@
 #ETSY API TEST
-I am testing the use of the Etsy API to get an appropriate setup for use in my personal project.
+This project is working towards implementing the Etsy API in a dynamic, column based box-form layout using two-way AngularJS data-binding.
 
-masonry documentation:
-http://masonry.desandro.com/
+Bin-packing-grid
+https://github.com/chris-l/bin-packing-grid
 
-Masonry requires imagesloaded:
-http://masonry.desandro.com/appendix.html#imagesloaded
+Bin-packing-grid uses Polymer which can interfere with the two way data binding in Angular.
+ng-polymer-elements may be a solution.
+Read more here:
+http://ngmodules.org/modules/ng-polymer-elements
 
-imagesloaded:
-http://imagesloaded.desandro.com/
+Based on my previous attempt with Masonry, I'm hesitant to try to force a relationship between bin-packing-grid and AngularJS.
 
-masonry doesn't play with angular. To make it play, you need this:
-http://passy.github.io/angular-masonry/
-(warning, doesn't have documentation)
 
-There is possibly another angular-masonry plugin that would replace the one above by passy, but I have not implemented it:
-https://github.com/klederson/angular-masonry-directive
-
-TO DO: Masonry needs to fire /after/ the images are loaded. imagesloaded delays a function while the images are loading.
-
-A stack overflow discussion talks about the need to reload after images are pulled. The top answer contains a plunker with a way to make some things work. I don't understand the directives part but it's here:
-http://stackoverflow.com/questions/16504151/masonry-with-angularjs
 

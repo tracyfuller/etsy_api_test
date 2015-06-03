@@ -1,8 +1,9 @@
 var https = require('https');
 
 //TODO: maybe change the page number to a function input parameter of the prototype?
-//var page = 0;
 
+var storeName = "bitsmonster";
+var page = 0;
 
 function GetData() {
     if (!this instanceof GetData) {
@@ -12,7 +13,7 @@ function GetData() {
 
 GetData.prototype.go = function(callback){
 
-    var request = https.request("https://openapi.etsy.com/v2/shops/bitsmonster/listings/active?&includes=Images:1:0&api_key=f07lri9zll0kl2jfnkfqli8z",
+    var request = https.request("https://openapi.etsy.com/v2/shops/" + storeName + "/listings/active?&includes=Images:1:0&api_key=f07lri9zll0kl2jfnkfqli8z&limit=25&offset=" + page,
         function (response) {
         jsonObject = '';                                            //define jsonObject as a string so as to not have the data return "[Object, object]"
 

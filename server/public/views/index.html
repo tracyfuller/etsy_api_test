@@ -3,32 +3,33 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Etsy API Test</title>
-    <link href="../stylesheets/style.css" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="../vendor/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../vendor/angular/angular.min.js"></script>
-    <script type="text/javascript" src="../vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="../vendor/masonry/masonry.pkgd.min.js"></script>
-    <Script type="text/javascript" src="../vendor/masonry/angular-masonry.js"></Script>
-    <script type="text/javascript" src="../scripts/directives.min.js"></script>
-    <script type="text/javascript" src="../scripts/app.min.js"></script>
+
+    <!--<link rel="import" href="../vendor/polymer/polymer.html">-->
+    <link rel="import" href="../vendor/bin-packing-grid/dist/bin-packing-grid.html">
+    <link href="../stylesheets/style.css" rel="stylesheet">
 
 </head>
 <body>
     <div ng-controller="GetApi">
         <button ng-click="displayListings()">Display Listings</button>
+        <div class="container">
+            <bin-packing-grid cell-size="100">
+                <bin-packing-item rows="{{thing.rows}}" cols="{{thing.cols}}" ng-repeat="thing in sizedArray">
+                    <!--<img ng-src="{{thing.image}}">-->
+                    <p>item number {{thing.id}}</p>
+                </bin-packing-item>
+            </bin-packing-grid>
+        </div>
 
-        <masonry class="grid" item-selector=".masonryBrick" column-width="100">
-            <div ng-repeat="listing in listings">
-                <div class="masonry-brick {{listing.class}}" >
-                    <img ng-src="{{listing.Images[0].url_170x135}}">
-                </div>
-            </div>
-        </masonry>
     </div>
 
 
+    <!-- Scripts -->
+    <script type="text/javascript" src="../vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../vendor/angular/angular.min.js"></script>
+    <script src="../vendor/webcomponentsjs/webcomponents.min.js"></script>
+    <script type="text/javascript" src="../scripts/app.min.js"></script>
 
 </body>
 </html>

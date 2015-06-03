@@ -8,11 +8,8 @@
   "description": "Personal Project Masonry / Etsy API Test",
   "main": "app.js",
   "moduleType": [
-    "amd",
-    "es6",
     "globals",
-    "node",
-    "yui"
+    "node"
   ],
   "license": "MIT",
   "ignore": [
@@ -23,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular-masonry": "~0.11.0"
+    "bin-packing-grid": "~0.1.1"
   }
 }

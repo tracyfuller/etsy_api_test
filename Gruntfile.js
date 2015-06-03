@@ -8,7 +8,6 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'server/public/scripts/directives.min.js':'client/scripts/directives.js',
                     'server/public/scripts/app.min.js': 'client/scripts/app.js'
                 }
             }
@@ -24,37 +23,30 @@ module.exports = function(grunt) {
                 ],
                 "dest": "server/public/vendor/"
             },
-            masonry: {
-                expand: true,
-                cwd: "bower_components/masonry/dist/",
-                src: [
-                    "masonry.pkgd.min.js"
-                ],
-                "dest": "server/public/vendor/masonry"
-            },
-            angular_masonry: {
-                expand: true,
-                cwd: "bower_components/angular-masonry/",
-                src: [
-                    "angular-masonry.js"
-                ],
-                "dest": "server/public/vendor/masonry"
-            },
-            imagesloaded: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "imagesloaded/imagesloaded.pkgd.js",
-                    "imagesloaded/imagesloaded.pkgd.min.js"
-                ],
-                "dest": "server/public/vendor/"
-            },
             jquery: {
                 expand: true,
                 cwd: "node_modules/",
                 src: [
                     "jquery/dist/jquery.min.js",
                     "jquery/dist/jquery.min.map"
+                ],
+                "dest": "server/public/vendor/"
+            },
+            polymer: {
+                expand: true,
+                cwd: "bower_components/",
+                src: [
+                    "polymer/*"
+                ],
+                "dest": "server/public/vendor/"
+            },
+            binpackinggrid: {
+                expand: true,
+                cwd: "bower_components/",
+                src: [
+                    "bin-packing-grid/dist/*",
+                    "webcomponentsjs/webcomponents.min.js",
+                    "webcomponentsjs/webcomponents-lite.min.js"
                 ],
                 "dest": "server/public/vendor/"
             },
