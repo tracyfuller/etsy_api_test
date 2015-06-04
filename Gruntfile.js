@@ -32,24 +32,6 @@ module.exports = function(grunt) {
                 ],
                 "dest": "server/public/vendor/"
             },
-            polymer: {
-                expand: true,
-                cwd: "bower_components/",
-                src: [
-                    "polymer/*"
-                ],
-                "dest": "server/public/vendor/"
-            },
-            binpackinggrid: {
-                expand: true,
-                cwd: "bower_components/",
-                src: [
-                    "bin-packing-grid/dist/*",
-                    "webcomponentsjs/webcomponents.min.js",
-                    "webcomponentsjs/webcomponents-lite.min.js"
-                ],
-                "dest": "server/public/vendor/"
-            },
             bootstrap: {
                 expand: true,
                 cwd: "node_modules",
