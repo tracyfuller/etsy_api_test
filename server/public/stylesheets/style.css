@@ -18,6 +18,10 @@ h2 {
     margin-left: 5px;
     margin-bottom: 10px;
     border: 2px dashed black;
+    background-color: transparent;
+}
+.btn:hover {
+    background-color: #c6c6c6;
 }
 .mapKey {
     margin: 0 0 10px 25px;

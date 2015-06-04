@@ -22,7 +22,7 @@
     <div ng-controller="GetApi" class="listingDisplay">
 
         <div>
-            <button class="btn" ng-click="displayListings()">Display Listings</button>
+            <button class="btn btn-xs" ng-click="displayListings()">Display Listings</button>
         </div>
         <div ng-repeat="thing in sizedArray" class="item {{thing.class}}" style="background-image: url('{{thing.image}}');">
             <a ng-href="{{thing.url}}" target="_blank"><span></span></a>
