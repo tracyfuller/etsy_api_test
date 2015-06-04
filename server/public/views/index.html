@@ -3,24 +3,33 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Etsy API Test</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.css">
+    <link href="../vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../stylesheets/style.css" rel="stylesheet">
 
 </head>
 <body>
-    <div ng-controller="GetApi">
-        <button ng-click="displayListings()">Display Listings</button>
-        <div class="container">
-            <div ng-repeat="thing in sizedArray">
-                <div class="item {{thing.class}}">
-                    <img ng-src="{{thing.image}}">
-                    <div class="descContainer">
-                        <p>item number {{thing.id}}</p>
-                    </div>
-                </div>
+    <div class="header">
+        <h1>Etsy Popularity Map</h1>
+    </div>
+    <div class="mapKey">
+        <h2>Map Key <small>See your most popular items at a glance!</small></h2>
+        <div class="key"><p><b style="border-bottom: 2px blue solid">Top 50%</b> are popular Items </p></div>
+        <div class="key"><p><b style="border-bottom: 2px #e89600 solid">Top 25%</b> are very popular items</p></div>
+        <div class="key"><p><b style="border-bottom: 2px red solid">Top 8%</b> are the most popular items</p></div>
+
+
+    </div>
+    <div ng-controller="GetApi" class="listingDisplay">
+
+        <div>
+            <button class="btn btn-danger" ng-click="displayListings()">Display Listings</button>
+        </div>
+        <div ng-repeat="thing in sizedArray" class="item {{thing.class}}" style="background-image: url('{{thing.image}}');">
+            <a href="{{thing.url}}" target="_blank"><span></span></a>
+            <div class="descContainer">
+                <p>Popularity index: {{thing.popularity}}</p>
             </div>
         </div>
-
     </div>
 
 

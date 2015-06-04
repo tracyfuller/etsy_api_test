@@ -164,6 +164,17 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
     };
 
+    $scope.goToListingUrl = function(url){
+        var win = window.open(url);
+        if(win){
+            //Browser has allowed it to be opened
+            win.focus();
+        }else{
+            //Broswer has blocked it
+            alert('Cannot open listing url in new page, please allow popups');
+        }
+    };
+
 
     //TODO: connect button to pagination call on API
     //$scope.addPage = function(){
