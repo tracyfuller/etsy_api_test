@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>Etsy API Test</title>
 
-
-    <!--<link rel="import" href="../vendor/polymer/polymer.html">-->
-    <link rel="import" href="../vendor/bin-packing-grid/dist/bin-packing-grid.html">
     <link href="../stylesheets/style.css" rel="stylesheet">
 
 </head>
@@ -14,12 +11,14 @@
     <div ng-controller="GetApi">
         <button ng-click="displayListings()">Display Listings</button>
         <div class="container">
-            <bin-packing-grid cell-size="100">
-                <bin-packing-item rows="{{thing.rows}}" cols="{{thing.cols}}" ng-repeat="thing in sizedArray">
-                    <!--<img ng-src="{{thing.image}}">-->
-                    <p>item number {{thing.id}}</p>
-                </bin-packing-item>
-            </bin-packing-grid>
+            <div ng-repeat="thing in sizedArray">
+                <div class="item {{thing.class}}">
+                    <img ng-src="{{thing.image}}">
+                    <div class="descContainer">
+                        <p>item number {{thing.id}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -28,7 +27,6 @@
     <!-- Scripts -->
     <script type="text/javascript" src="../vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../vendor/angular/angular.min.js"></script>
-    <script src="../vendor/webcomponentsjs/webcomponents.min.js"></script>
     <script type="text/javascript" src="../scripts/app.min.js"></script>
 
 </body>

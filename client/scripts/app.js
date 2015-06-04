@@ -85,6 +85,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         elem.sort(function (a, b){
             return a.popularity - b.popularity
         });
+
         //separate array into separate sizing categories
         while (elem.length > (origLength/2)){
             arraySmall.push(elem.shift());
@@ -97,23 +98,21 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         while (elem.length > (origLength/3)){
             arrayLarge.push(elem.shift());
         };
-        // assign class designations to each array
+
+        // BELOW FUNCTIONS WILL ASSIGN CLASSES BASED ON POPULARITY AS NEEDED
         for (i=0; i<arraySmall.length; i++){
-            arraySmall[i].rows = "1";
-            arraySmall[i].cols = "1";
+            arraySmall[i].class = "";
         };
         for (i=0; i<arrayMed.length; i++){
-            arrayMed[i].rows = "2";
-            arrayMed[i].cols = "2";
+            arrayMed[i].class = "size2";
         };
         for (i=0; i<arrayLarge.length; i++){
-            arrayLarge[i].rows = "3";
-            arrayLarge[i].cols = "2";
+            arrayLarge[i].class = "size3";
         };
         for (i=0; i<elem.length; i++){
-            elem[i].rows = "3";
-            elem[i].cols = "3";
+            elem[i].class = "size4";
         };
+
         // push small arrays back together into main array
         while (arraySmall.length >0){
             elem.push(arraySmall.shift());
@@ -124,6 +123,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         while (arrayLarge.length >0){
             elem.push(arrayLarge.shift());
         };
+
         // sort main array back to original order
         elem.sort(function (a, b){
             return a.id - b.id
@@ -134,7 +134,7 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
     var imageSizer = function(){
         for (var i = 0; i < $scope.listings.length; i++){
             $scope.item.id = (i+1);
-            $scope.item.image = $scope.listings[i].Images[0].url_570xN;
+            $scope.item.image = $scope.listings[i].Images[0].url_170x135;
             $scope.item.popularity = findPopularity($scope.listings[i]);
             $scope.item.url = $scope.listings[i].url;
 
