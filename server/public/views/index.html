@@ -9,25 +9,21 @@
 </head>
 <body>
     <div class="header">
-        <h1>Etsy Popularity Map</h1>
+        <h1>Etsy Popularity Map <small class="hidden-xs">See your most popular items at a glance!</small></h1>
     </div>
-    <div class="mapKey">
-        <h2  class="hidden-xs">Map Key <small>See your most popular items at a glance!</small></h2>
-        <div class="key"><p><b style="border-bottom: 2px blue solid">Top 50%</b> are popular Items </p></div>
-        <div class="key"><p><b style="border-bottom: 2px #e89600 solid">Top 25%</b> are very popular items</p></div>
-        <div class="key"><p><b style="border-bottom: 2px red solid">Top 8%</b> are the most popular items</p></div>
 
-
-    </div>
     <div ng-controller="GetApi" class="listingDisplay">
 
         <div>
-            <button class="btn btn-xs" ng-click="displayListings()">Display Listings</button>
+            <button class="btn btn-lg" ng-click="displayListings()">Display Listings</button>
         </div>
         <div ng-repeat="thing in sizedArray" class="item {{thing.class}}" style="background-image: url('{{thing.image}}');">
-            <a ng-href="{{thing.url}}" target="_blank"><span></span></a>
-            <div class="descContainer">
-                <p>Popularity index: {{thing.popularity}}</p>
+            <a ng-href="{{thing.url}}" target="_blank">
+                <span ng-mouseenter="show = true" ng-mouseleave="show = false"></span>
+            </a>
+            <div class="cornerBanner" ng-show="show"><img ng-src="{{thing.banner}}"></div>
+            <div class="descContainer" ng-show="show">
+                <p class="text-center">Popularity index: {{thing.popularity}}</p>
             </div>
         </div>
     </div>
