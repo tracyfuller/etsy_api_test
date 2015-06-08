@@ -32,6 +32,15 @@ module.exports = function(grunt) {
                 ],
                 "dest": "server/public/vendor/"
             },
+            loadingbar: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-loading-bar/build/loading-bar.min.css",
+                    "angular-loading-bar/build/loading-bar.min.js"
+                ],
+                "dest": "server/public/vendor/"
+            },
             bootstrap: {
                 expand: true,
                 cwd: "node_modules",

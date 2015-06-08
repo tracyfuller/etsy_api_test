@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['angular-loading-bar']);
 
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
@@ -158,7 +158,11 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
     $scope.displayListings = function(){
         $scope.clickCounter++;
         $scope.sizedArray = [];
-        return $http.get('/etsy').then(function(response){
+        $scope.loading = true;
+
+        return $http.get('/etsy', function(){
+            cfpLoadingBar.start();
+        }).then(function(response){
             if(response.status !== 200){
                 console.log("Response Error, cannot reach data");
             }
@@ -166,6 +170,9 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
             imageSizer();
             pageBuilder(response.data);
             return response.data;
+        }).finally(function(){
+            $scope.loading = false;
+            cfpLoadingBar.complete();
         });
 
     };
