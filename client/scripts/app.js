@@ -2,68 +2,6 @@ var myApp = angular.module('myApp', ['angular-loading-bar']);
 
 myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
 
-    //$scope.listings = [
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size3'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size3'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: ''
-    //    },
-    //    {
-    //        Images: [{ url_170x135: "http://www.fillmurray.com/300/300"}],
-    //        class: 'size2'
-    //    }
-    //];
     $scope.clickCounter = 0;
     $scope.item = {};
     $scope.sizedArray = [];
