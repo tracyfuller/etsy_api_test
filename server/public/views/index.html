@@ -22,7 +22,7 @@
         <div class="alert alert-info" role="alert" ng-show="loading">Loading...</div>
         <div ng-repeat="thing in sizedArray" class="item {{thing.class}}" style="background-image: url('{{thing.image}}');">
             <a ng-href="{{thing.url}}" target="_blank">
-                <span ng-mouseenter="show = true" ng-mouseleave="show = false"></span>
+                <span ng-mouseenter="show = true" ng-mouseleave="show = false" style="background-color: {{thing.fade}}"></span>
             </a>
             <div class="cornerBanner" ng-show="show"><img ng-src="{{thing.banner}}"></div>
             <div class="descContainer" ng-show="show">

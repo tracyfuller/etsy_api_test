@@ -39,18 +39,22 @@ myApp.controller('GetApi', ['$scope', '$http', function($scope, $http){
         for (i=0; i<arraySmall.length; i++){
             arraySmall[i].class = "";
             arraySmall[i].banner = "../images/blank.png";
+            arraySmall[i].fade = "rgba(255, 255, 255, 0.6)";
         };
         for (i=0; i<arrayMed.length; i++){
             arrayMed[i].class = "size2";
             arrayMed[i].banner = "../images/blue-corner-banner.png";
+            arrayMed[i].fade = "transparent";
         };
         for (i=0; i<arrayLarge.length; i++){
             arrayLarge[i].class = "size3";
             arrayLarge[i].banner = "../images/orange-corner-banner.png";
+            arrayLarge[i].fade = "transparent";
         };
         for (i=0; i<elem.length; i++){
             elem[i].class = "size4";
             elem[i].banner = "../images/red-corner-banner.png";
+            elem[i].fade = "transparent";
         };
 
         // push small arrays back together into main array
